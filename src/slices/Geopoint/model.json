@@ -1,0 +1,25 @@
+{
+  "id": "geopoint",
+  "type": "SharedSlice",
+  "name": "Geopoint",
+  "description": "Geopoint",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "geopoint_test": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "geopoint test"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

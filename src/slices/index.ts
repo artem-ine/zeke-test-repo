@@ -3,5 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  every_type_test: dynamic(() => import("./EveryTypeTest")),
+  geopoint: dynamic(() => import("./Geopoint")),
   rich_text: dynamic(() => import("./RichText")),
 };

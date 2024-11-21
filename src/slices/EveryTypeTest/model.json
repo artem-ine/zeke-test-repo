@@ -1,0 +1,134 @@
+{
+  "id": "every_type_test",
+  "type": "SharedSlice",
+  "name": "EveryTypeTest",
+  "description": "EveryTypeTest",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "text",
+            "placeholder": "text"
+          }
+        },
+        "rich_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "rich text",
+            "placeholder": "rich text, everything accepted, allows target blank for links, allows multiple paragraphs",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "link",
+            "placeholder": "link, allow target blank, allow display text",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "select": {
+          "type": "Select",
+          "config": {
+            "label": "select",
+            "placeholder": "select, use first value as default unselected",
+            "options": [
+              "option one",
+              "option two"
+            ]
+          }
+        },
+        "boolean": {
+          "type": "Boolean",
+          "config": {
+            "label": "boolean",
+            "placeholder_false": "false",
+            "placeholder_true": "true, defaults to true on",
+            "default_value": true
+          }
+        },
+        "number": {
+          "type": "Number",
+          "config": {
+            "label": "number",
+            "placeholder": "number"
+          }
+        },
+        "color": {
+          "type": "Color",
+          "config": {
+            "label": "color",
+            "placeholder": "#808000"
+          }
+        },
+        "date": {
+          "type": "Date",
+          "config": {
+            "label": "date",
+            "placeholder": "date without time"
+          }
+        },
+        "timestamp": {
+          "type": "Timestamp",
+          "config": {
+            "label": "timestamp",
+            "placeholder": "timestamp"
+          }
+        },
+        "geopoint": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "geopoint"
+          }
+        },
+        "link_to_media": {
+          "type": "Link",
+          "config": {
+            "label": "link to media",
+            "placeholder": "link to media, allow display text on",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "repeatable_group": {
+          "type": "Group",
+          "config": {
+            "label": "repeatable group",
+            "repeat": true,
+            "fields": {
+              "repeated_rich_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "repeated rich text",
+                  "placeholder": "item one, all accepted",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

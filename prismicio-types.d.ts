@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | EveryTypeTestSlice
+  | GeopointSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -79,15 +82,243 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument;
 
 /**
- * Primary content in *RichText → Primary*
+ * Item in *EveryTypeTest → Default → Primary → repeatable group*
+ */
+export interface EveryTypeTestSliceDefaultPrimaryRepeatableGroupItem {
+  /**
+   * repeated rich text field in *EveryTypeTest → Default → Primary → repeatable group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: item one, all accepted
+   * - **API ID Path**: every_type_test.default.primary.repeatable_group[].repeated_rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  repeated_rich_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *EveryTypeTest → Default → Primary*
+ */
+export interface EveryTypeTestSliceDefaultPrimary {
+  /**
+   * image field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: every_type_test.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: text
+   * - **API ID Path**: every_type_test.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * rich text field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: rich text, everything accepted, allows target blank for links, allows multiple paragraphs
+   * - **API ID Path**: every_type_test.default.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * link field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: link, allow target blank, allow display text
+   * - **API ID Path**: every_type_test.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * select field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: select, use first value as default unselected
+   * - **API ID Path**: every_type_test.default.primary.select
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  select: prismic.SelectField<"option one" | "option two">;
+
+  /**
+   * boolean field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: every_type_test.default.primary.boolean
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  boolean: prismic.BooleanField;
+
+  /**
+   * number field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: number
+   * - **API ID Path**: every_type_test.default.primary.number
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  number: prismic.NumberField;
+
+  /**
+   * color field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #808000
+   * - **API ID Path**: every_type_test.default.primary.color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+
+  /**
+   * date field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: date without time
+   * - **API ID Path**: every_type_test.default.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * timestamp field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: timestamp
+   * - **API ID Path**: every_type_test.default.primary.timestamp
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  timestamp: prismic.TimestampField;
+
+  /**
+   * geopoint field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: every_type_test.default.primary.geopoint
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  geopoint: prismic.GeoPointField;
+
+  /**
+   * link to media field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: link to media, allow display text on
+   * - **API ID Path**: every_type_test.default.primary.link_to_media
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_to_media: prismic.LinkToMediaField;
+
+  /**
+   * repeatable group field in *EveryTypeTest → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: every_type_test.default.primary.repeatable_group[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  repeatable_group: prismic.GroupField<
+    Simplify<EveryTypeTestSliceDefaultPrimaryRepeatableGroupItem>
+  >;
+}
+
+/**
+ * Default variation for EveryTypeTest Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EveryTypeTestSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EveryTypeTestSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EveryTypeTest*
+ */
+type EveryTypeTestSliceVariation = EveryTypeTestSliceDefault;
+
+/**
+ * EveryTypeTest Shared Slice
+ *
+ * - **API ID**: `every_type_test`
+ * - **Description**: EveryTypeTest
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EveryTypeTestSlice = prismic.SharedSlice<
+  "every_type_test",
+  EveryTypeTestSliceVariation
+>;
+
+/**
+ * Primary content in *Geopoint → Default → Primary*
+ */
+export interface GeopointSliceDefaultPrimary {
+  /**
+   * geopoint test field in *Geopoint → Default → Primary*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: geopoint.default.primary.geopoint_test
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  geopoint_test: prismic.GeoPointField;
+}
+
+/**
+ * Default variation for Geopoint Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeopointSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GeopointSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Geopoint*
+ */
+type GeopointSliceVariation = GeopointSliceDefault;
+
+/**
+ * Geopoint Shared Slice
+ *
+ * - **API ID**: `geopoint`
+ * - **Description**: Geopoint
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeopointSlice = prismic.SharedSlice<
+  "geopoint",
+  GeopointSliceVariation
+>;
+
+/**
+ * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
   /**
-   * Content field in *RichText → Primary*
+   * Content field in *RichText → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.primary.content
+   * - **API ID Path**: rich_text.default.primary.content
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
@@ -131,12 +362,32 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      EveryTypeTestSlice,
+      EveryTypeTestSliceDefaultPrimaryRepeatableGroupItem,
+      EveryTypeTestSliceDefaultPrimary,
+      EveryTypeTestSliceVariation,
+      EveryTypeTestSliceDefault,
+      GeopointSlice,
+      GeopointSliceDefaultPrimary,
+      GeopointSliceVariation,
+      GeopointSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

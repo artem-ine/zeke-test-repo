@@ -1,0 +1,128 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+					"width": 3456,
+					"height": 4320
+				},
+				"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+				"width": 3456,
+				"height": 4320,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"text": {
+				"__TYPE__": "FieldContent",
+				"value": "accept",
+				"type": "Text"
+			},
+			"rich_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur qui fugiat reprehenderit laboris sint eu Lorem do sunt veniam cupidatat est enim reprehenderit deserunt."
+						}
+					}
+				]
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "split"
+				}
+			},
+			"select": {
+				"__TYPE__": "FieldContent",
+				"value": "option one",
+				"type": "Select"
+			},
+			"boolean": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"number": {
+				"__TYPE__": "FieldContent",
+				"value": "95",
+				"type": "Number"
+			},
+			"color": {
+				"__TYPE__": "FieldContent",
+				"value": "#fa116d",
+				"type": "Color"
+			},
+			"date": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2016-03-08"
+			},
+			"timestamp": {
+				"__TYPE__": "FieldContent",
+				"type": "Timestamp",
+				"value": "2021-06-25T06:02:15Z"
+			},
+			"geopoint": {
+				"position": {
+					"lat": 48.8606111,
+					"lng": 2.337644
+				},
+				"__TYPE__": "GeoPointContent"
+			},
+			"link_to_media": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "breathing"
+				}
+			},
+			"repeatable_group": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"repeated_rich_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consequat voluptate incididunt eiusmod in et fugiat."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
